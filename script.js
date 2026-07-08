@@ -37,7 +37,10 @@ let checkWinner = () => {
 
     if (pos1Value != "" && pos2Value != "" && pos3Value != "") {
       if (pos1Value == pos2Value && pos2Value == pos3Value) {
-        console.log("Winner");
+        console.log(`Winner ${pos1Value}`);
+        boxes.forEach((box) => {
+          box.disabled = true;
+        });
       }
     }
   }
