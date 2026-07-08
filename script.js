@@ -31,11 +31,14 @@ boxes.forEach((box) => {
 
 let checkWinner = () => {
   for (pattern of winPattern) {
-    console.log(pattern[0], pattern[1], pattern[2]);
-    console.log(
-      boxes[pattern[0]].innerText,
-      boxes[pattern[1]].innerText,
-      boxes[pattern[2]].innerText,
-    );
+    let pos1Value = boxes[pattern[0]].innerText;
+    let pos2Value = boxes[pattern[1]].innerText;
+    let pos3Value = boxes[pattern[2]].innerText;
+
+    if (pos1Value != "" && pos2Value != "" && pos3Value != "") {
+      if (pos1Value == pos2Value && pos2Value == pos3Value) {
+        console.log("Winner");
+      }
+    }
   }
 };
