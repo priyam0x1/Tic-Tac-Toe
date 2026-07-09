@@ -17,6 +17,21 @@ let winPattern = [
   [6, 7, 8],
 ];
 
+const resetGame = () => {
+  trun0 = true;
+  boxes.forEach((box) => {
+    box.disabled = false;
+    box.innerText = "";
+  });
+  msgContainer.classList.add("hide");
+};
+
+resetBtn.addEventListener("click", () => {
+  resetGame();
+});
+
+newGameBtn.addEventListener("click", resetGame);
+
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     console.log("Box was Clicked");
