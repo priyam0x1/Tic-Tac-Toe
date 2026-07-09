@@ -77,3 +77,9 @@ body {
 .hide {
   display: none;
 }
+
+.turn {
+  color: #ffffc7;
+  font-size: 1.5rem;
+  font-weight: 500;
+}

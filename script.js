@@ -3,8 +3,9 @@ let resetBtn = document.getElementById("reset-btn");
 let newGameBtn = document.getElementById("new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.getElementById("msg");
+let turn = document.querySelector(".turn");
 
-let turn0 = true;
+let turnX = true;
 let count = 0;
 
 let winPattern = [
@@ -19,7 +20,8 @@ let winPattern = [
 ];
 
 const resetGame = () => {
-  turn0 = true;
+  turn.innerText = "Turn Of : X";
+  turnX = true;
   count = 0;
   boxes.forEach((box) => {
     box.disabled = false;
@@ -36,13 +38,15 @@ newGameBtn.addEventListener("click", resetGame);
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
-    if (turn0) {
-      box.classList.remove("colorO");
+    if (turnX) {
+      turn.innerText = "Turn Of : O";
       box.innerText = "X";
-      turn0 = false;
+      turnX = false;
+      box.classList.remove("colorO");
     } else {
+      turn.innerText = "Turn Of : X";
       box.innerText = "O";
-      turn0 = true;
+      turnX = true;
     }
     box.disabled = true;
     count++;
@@ -81,14 +85,3 @@ let checkWinner = () => {
     }
   }
 };
-
-// let count = 0;
-
-// for (pattern of winPattern) {
-//   if (boxes[pattern[0]].disabled == true || boxes[pattern[1]] == true) {
-//     count++;
-//     console.log(count);
-//   } else if (boxes[pattern[2]] == true) {
-//     count++;
-//   }
-// }
