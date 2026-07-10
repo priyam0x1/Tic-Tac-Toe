@@ -6,6 +6,21 @@ let msg = document.getElementById("msg");
 let turn = document.querySelector(".turn");
 
 let turnX = true;
+
+// This function is for user input (choice)
+let choiceFunc = () => {
+  let choice = prompt("Enter Your Choice(X/O)");
+  if (choice == "X" || choice == "x") {
+    turn.innerText = "Turn Of : X";
+    turnX = true;
+  } else {
+    turnX = false;
+    turn.innerText = "Turn Of : O";
+  }
+};
+
+choiceFunc();
+
 let count = 0;
 
 let winPattern = [
@@ -28,6 +43,7 @@ const resetGame = () => {
     box.innerText = "";
   });
   msgContainer.classList.add("hide");
+  choiceFunc();
 };
 
 resetBtn.addEventListener("click", () => {
